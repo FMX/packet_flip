@@ -7,9 +7,7 @@
 
 #include "structs.h"
 #include "ip_packet.h"
-#include <boost/shared_ptr.hpp>
-#include <boost/array.hpp>
-#include <boost/shared_array.hpp>
+#include "commonheader.h"
 
 class ethernet_frame {
 private:
@@ -25,7 +23,7 @@ public:
     ethernet_frame(unsigned char header[18]);
     bool isContainIPPacket();
     boost::shared_ptr<ip_packet>  getIpPacket();
-    void setData(boost::shared_array<char> array);
+    void setData(boost::shared_array<char> array,int datalen);
 };
 
 

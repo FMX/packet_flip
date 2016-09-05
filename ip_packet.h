@@ -4,22 +4,22 @@
 
 #ifndef PACKET_FLIP_IP_PACKET_H
 #define PACKET_FLIP_IP_PACKET_H
-#include <boost/shared_ptr.hpp>
-#include <boost/array.hpp>
-#include <boost/shared_array.hpp>
+
+#include "commonheader.h"
 #include "structs.h"
-#include <bitset>
-#include <vector>
 
 class ip_packet {
 private:
-    std::bitset<4> version;
-    std::bitset<4> headerlen;
+    unsigned short version;
+    unsigned short headerlen;
     unsigned char tos;
     unsigned short totallen;
-    unsigned short identifier;
-    std::bitset<3> flag;
-    std::bitset<13> offset;
+    unsigned char identifier;
+    unsigned short flag;
+    unsigned short offset;
+    unsigned char ttl;
+    unsigned char proto;
+    unsigned short checksum;
     ip_addr src;
     ip_addr dst;
     boost::shared_array<char> packet;
